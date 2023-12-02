@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+    .contact-form {
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+    }
+  </style>
+  <title>  हुदै गरेका बिकाशको कार्यहरु</title>
+</head>
+<body>
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="contact-form">
+          <h2> हुदै गरेका बिकाशको कार्यहरु</h2>
+          <form>
+            <div class="form-group">
+              <label for="title">Title:</label>
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+              <label for="initiationDate">Date of Initiation:</label>
+              <input type="date" class="form-control" id="initiationDate" name="initiationDate" required>
+            </div>
+            <div class="form-group">
+              <label for="government">Government:</label>
+              <select class="form-control" id="government" name="government" required>
+                <option value="federal">Federal</option>
+                <option value="state">State</option>
+                <option value="local">Local</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="completionDate">Proposed Completion Date:</label>
+              <input type="date" class="form-control" id="completionDate" name="completionDate" required>
+            </div>
+            <div class="form-group">
+              <label for="description">Detailed Description:</label>
+              <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="uploadDocument">Upload Document:</label>
+              <input type="file" class="form-control-file" id="uploadDocument" name="uploadDocument">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
