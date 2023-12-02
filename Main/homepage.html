@@ -7,11 +7,11 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url(munci.jpeg); /* Replace 'your-background-image.jpg' with the actual path to your image */
-      background-size: cover; /* Cover the entire viewport with the background image */
-      background-position: center center; /* Center the background image */
-      background-attachment: fixed; /* Fixed background */
-      color: #fff; /* Text color */
+      background-image: url(munci.jpeg);
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -23,25 +23,43 @@
       padding: 15px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       border-radius: 5px;
-      width: 100%; /* Set the width to cover the entire screen */
-      box-sizing: border-box; /* Include padding and border in the total width */
-      position: absolute;
+      width: 100%;
+      box-sizing: border-box;
+      position: fixed;
       top: 0;
       display: flex;
-      justify-content: space-between; /* Space between logo and navigation features */
+      justify-content: space-between;
       align-items: center;
-      height:12vh; /* Increase the height of the navbar */
+      min-height: 16vh;
+      z-index: 1000;
+      height: 18vh;
     }
 
     #logo {
-      /* Add styles for your logo here */
-      height: 19vh;
+      height: 34vh;
+      max-width: 100%;
+    }
+
+    #detailofmunicipality {
+      width: 21vw;
+      margin-left: 23vw;
+      margin-top: -9vh;
+      color: black;
+      font-size: 2.7vh;
+      margin-bottom: 1vh;
+      color: red;
+    }
+
+    .nav-features {
+        width: 30vw;
+      display: flex;
+      flex-wrap: wrap;
     }
 
     nav a {
       text-decoration: none;
       color: #333;
-      margin: 0 15px;
+      margin: 0 10px;
       font-size: 18px;
       transition: color 0.3s ease;
     }
@@ -49,19 +67,104 @@
     nav a:hover {
       color: #FF5733;
     }
+
+    /* Hamburger Menu Styles */
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .nav-toggle:checked + .nav-features {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 999;
+    }
+
+    .nav-toggle:checked + .nav-features a {
+      display: block;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger-icon {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #detailofmunicipality {
+        font-size: 2vh;
+      }
+
+      .nav-features {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 999;
+      }
+
+      .nav-features a {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hamburger-icon {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      nav {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
 
   <nav>
     <div class="logo">
-    <img src="logoo.png" id="logo"alt="" srcset="">
+      <img src="ss.png" id="logo" alt="">
     </div>
+    <p id="detailofmunicipality">तिलोत्तमा नगरपालिका</p>
+    <input type="checkbox" class="nav-toggle" id="nav-toggle">
+    <div class="hamburger-icon">&#9776;</div>
     <div class="nav-features">
       <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
+      <a href="#">Representatives</a>
+      <a href="#">Complain Us</a>
+      <a href="#">About Us</a>
     </div>
   </nav>
 
