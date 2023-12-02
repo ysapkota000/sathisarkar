@@ -82,20 +82,20 @@
                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px; color: white;">Register Now!</h3>
                         <div class="form-outline mb-4">
                           <label class="form-label" for="form2Example18" style="color: white;">Full Name</label>
-                          <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                          <input type="text" id="name" class="form-control form-control-lg" />
                       </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example18" style="color: white;">Email address</label>
-                            <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                            <input type="email" id="email" class="form-control form-control-lg" />
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="form2Example28" style="color: white;">Password</label>
-                            <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                            <label class="form-label" for="form2Example" style="color: white;">Password</label>
+                            <input type="password" id="pass" class="form-control form-control-lg" />
                         </div>
 
                         <div class="pt-1 mb-4">
-                            <button class="btn btn-primary btn-lg btn-block" type="button">Register</button>
+                            <button class="btn btn-primary btn-lg btn-block"id="submit" type="button">Register</button>
                         </div>
                          
 
@@ -122,7 +122,62 @@
 
 
 
+<!-- ... previous HTML code ... -->
 
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBvZRvmmL9XtHWIOt4h64g0TdU79mf-CvM",
+    authDomain: "sathi-authentication.firebaseapp.com",
+    databaseURL: "https://sathi-authentication-default-rtdb.firebaseio.com",
+    projectId: "sathi-authentication",
+    storageBucket: "sathi-authentication.appspot.com",
+    messagingSenderId: "875344907531",
+    appId: "1:875344907531:web:7494458fe76e325226a60e",
+    measurementId: "G-0K6YPF0XTH"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database();
+
+  // Event listener for the Register button
+  const submit = document.getElementById('submit');
+  submit.addEventListener('click', () => {
+    const name = document.querySelector('#name').value;
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#pass').value;
+
+    // Use Firebase Authentication to create a new user
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User registered successfully
+        const user = userCredential.user;
+        console.log('User registered:', user);
+
+        // Use the set function to update the database
+        firebase.database().ref("users/" + user.uid).set({
+          username: name,
+          email: email,
+          password: password
+        });
+
+        // Redirect to another page after successful registration
+        window.location.href = "form.html";
+      })
+      .catch((error) => {
+        // Handle errors during registration
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(`Registration failed (${errorCode}): ${errorMessage}`);
+      });
+  });
+</script>
+</body>
+</html>
 
 </body>
 </html>

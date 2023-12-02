@@ -83,16 +83,16 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example18" style="color: white;">Email address</label>
-                            <input type="email" id="form2Example18" class="form-control form-control-lg" />
+                            <input type="email" id="email" class="form-control form-control-lg" />
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="form2Example28" style="color: white;">Password</label>
-                            <input type="password" id="form2Example28" class="form-control form-control-lg" />
+                            <input type="password" id="pass" class="form-control form-control-lg" />
                         </div>
 
                         <div class="pt-1 mb-4">
-                            <button class="btn btn-primary btn-lg btn-block" type="button">Login</button>
+                            <button id="login" class="btn btn-primary btn-lg btn-block" type="button">Login</button>
                         </div>
                          
                         <p class="small mb-5 pb-lg-2" style="font-size: 17px" ><a href="#!" style="color: white;">Forgot
@@ -119,6 +119,52 @@
 
 
 
+<!-- ... previous HTML code ... -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBvZRvmmL9XtHWIOt4h64g0TdU79mf-CvM",
+    authDomain: "sathi-authentication.firebaseapp.com",
+    databaseURL: "https://sathi-authentication-default-rtdb.firebaseio.com",
+    projectId: "sathi-authentication",
+    storageBucket: "sathi-authentication.appspot.com",
+    messagingSenderId: "875344907531",
+    appId: "1:875344907531:web:7494458fe76e325226a60e",
+    measurementId: "G-0K6YPF0XTH"
+  };
+
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const database = firebase.database();
+
+  // Event listener for the Login button
+  const loginButton = document.getElementById('login');
+  loginButton.addEventListener('click', () => {
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#pass').value;
+
+    // Use Firebase Authentication to sign in
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User signed in successfully
+        const user = userCredential.user;
+        console.log('User signed in:', user);
+
+        // Redirect to another page after successful login
+        window.location.href = "homepage.html";
+      })
+      .catch((error) => {
+        // Handle errors during login
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error(`Login failed (${errorCode}): ${errorMessage}`);
+      });
+  });
+</script>
+</body>
+</html>
 
 
 
