@@ -1,0 +1,19 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: red;
+    position: relative;
+}
+
+.bg{
+    height: 65vh;
+    width: 200wh;
+    background-image:url(muncip.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.munci{
+    position:absolute;
+    
+}
