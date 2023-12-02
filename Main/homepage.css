@@ -2,7 +2,6 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    background-color: red;
     position: relative;
 }
 
@@ -12,22 +11,4 @@
     background-image:url(muncip.jpeg);
     background-repeat: no-repeat;
     background-size:cover;
-}
-.munci{
-    position:absolute;
-    
-}
-#navbar{
-
-    margin-top: 1vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100vw;
-    height: 10vh;
-background-color: #fff;
-position: absolute;
-}
-#logo{
-    height:17vh;
 }
