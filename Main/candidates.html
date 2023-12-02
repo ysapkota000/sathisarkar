@@ -8,8 +8,156 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color: red;
       padding: 20px;
+
+      margin: 20vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-image: url(munci.jpeg);
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    
+    nav {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      position: fixed;
+      top: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 16vh;
+      z-index: 1000;
+      height: 18vh;
+    }
+
+    #logo {
+      height: 34vh;
+      max-width: 100%;
+    }
+
+    #detailofmunicipality {
+      width: 21vw;
+      margin-left: 23vw;
+      margin-top: -9vh;
+      color: black;
+      font-size: 2.7vh;
+      margin-bottom: 1vh;
+      color: red;
+    }
+
+    .nav-features {
+        width: 30vw;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #FF5733;
+    }
+
+    /* Hamburger Menu Styles */
+    .nav-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 24px;
+    }
+
+    .nav-toggle:checked + .nav-features {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      z-index: 999;
+    }
+
+    .nav-toggle:checked + .nav-features a {
+      display: block;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .hamburger-icon {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      #detailofmunicipality {
+        font-size: 2vh;
+      }
+
+      .nav-features {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        z-index: 999;
+      }
+
+      .nav-features a {
+        display: block;
+        text-align: center;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hamburger-icon {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+      }
+
+      nav {
+        height: auto;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    #info{
+      color: #ffffff;
+      text-align: center;
     }
     .testimonial-card {
       max-width: 300px;
@@ -37,8 +185,22 @@
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">
+      <img src="ss.png" id="logo" alt="">
+    </div>
+    <p id="detailofmunicipality">तिलोत्तमा नगरपालिका</p>
+    <input type="checkbox" class="nav-toggle" id="nav-toggle">
+    <div class="hamburger-icon">&#9776;</div>
+    <div class="nav-features">
+      <a href="#">Home</a>
+      <a href="candidates.html">Representatives</a>
+      <a href="#">Complain Us</a>
+      <a href="#">About Us</a>
+    </div>
+  </nav>
   <div class="container">
-    <h2 class="mb-4">प्रतिनिधिहरू </h2>
+    <h2 id="info" class="mb-4">प्रतिनिधिहरू </h2>
   
     <div class="row">
       <div class="col-lg-4">
