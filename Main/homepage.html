@@ -73,8 +73,6 @@
     nav a:hover {
       color: #FF5733;
     }
-
-    /* Hamburger Menu Styles */
     .nav-toggle {
       display: none;
       cursor: pointer;
@@ -155,6 +153,31 @@
         align-items: center;
       }
     }
+.feature-boxes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  width: 45%;
+}
+
+.feature-box h2 {
+  color: #FF5733;
+}
+
+.feature-box p {
+  color: #333;
+}
+
   </style>
 </head>
 <body>
@@ -173,14 +196,18 @@
       <a href="#">About Us</a>
     </div>
   </nav>
+  <section class="feature-boxes">
+    <div class="feature-box">
+      <h2>Know Your Representatives</h2>
+      <p>Get information about your local representatives.</p>
+    </div>
+
+    <div class="feature-box">
+      <h2>Report Problem</h2>
+      <p>Report any issues or problems you encounter in the municipality.</p>
+    </div>
 
   <!-- Your page content goes here -->
-<div class="box1">
 
-</div>
-<div class="box2">
-  
-</div>
-  
 </body>
 </html>
