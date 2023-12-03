@@ -1,38 +1,24 @@
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-<script>
-  
-const firebaseConfig = {
-  apiKey: "AIzaSyBvZRvmmL9XtHWIOt4h64g0TdU79mf-CvM",
-  authDomain: "sathi-authentication.firebaseapp.com",
-  databaseURL: "https://sathi-authentication-default-rtdb.firebaseio.com",
-  projectId: "sathi-authentication",
-  storageBucket: "sathi-authentication.appspot.com",
-  messagingSenderId: "875344907531",
-  appId: "1:875344907531:web:7494458fe76e325226a60e",
-  measurementId: "G-0K6YPF0XTH"
-};
-firebase.initializeApp(firebaseConfig);
+// Assuming 'data' is the array of objects retrieved from Firebase
+const boxContainer = document.querySelector('.box-container');
 
+data.forEach(item => {
+   const box = document.createElement('div');
+   box.classList.add('box');
 
-const database = firebase.database();
+   const title = document.createElement('h3');
+   title.textContent = item.title;
 
-// Reference to the node you want to check
-const nodeRef = database.ref();
+   const description = document.createElement('p');
+   description.textContent = item.description;
 
-// Check if the node has any children
-nodeRef.once('value')
-.then(snapshot => {
-  if (snapshot.exists()) {
+   const respondBtn = document.createElement('a');
+   respondBtn.href = '#';
+   respondBtn.classList.add('read-more-btn');
+   respondBtn.textContent = 'Respond';
 
-    console.log("Data exists in the node.");
-  } else {
+   box.appendChild(title);
+   box.appendChild(description);
+   box.appendChild(respondBtn);
 
-    console.log("Node is empty.");
-  }
-})
-.catch(error => {
-  console.error("Error fetching data:", error);
+   boxContainer.appendChild(box);
 });
-</script>
-i have this form from which the details is filled and sent into javascript 

@@ -62,7 +62,47 @@
   </div>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const firebaseConfig = {
+  apiKey: "AIzaSyAxaLgicdKNoZ3q5yV8tSJPNEZiX6Q4wts",
+  authDomain: "sathi-app-551fd.firebaseapp.com",
+  projectId: "sathi-app-551fd",
+  storageBucket: "sathi-app-551fd.appspot.com",
+  messagingSenderId: "931417842790",
+  appId: "1:931417842790:web:856c58f8d7201182b079a7",
+  measurementId: "G-QXWD6VBQHS"
+};
+  firebase.initializeApp(firebaseConfig);
+      var database = firebase.database();
+      var form = document.querySelector('form');
+  
+     
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+  
+   
+        var formData = {
+          title:document.getElementById("title").value,
+          initiation: document.getElementById('initiationDate').value,
+          government: document.getElementById('government').value,
+          completionDate: document.getElementById('completionDate').value,
+          description: document.getElementById('description').value,
+        };
+  
+      
+        database.ref('submissions').push(formData)
+          .then(function () {
+            alert('Data submitted successfully!');
+          })
+          .catch(function (error) {
+            console.error('Error submitting data: ', error);
+          });
+      });
+    });
+    </script>
 </body>
 </html>
